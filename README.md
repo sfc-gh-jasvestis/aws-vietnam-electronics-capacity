@@ -115,11 +115,10 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 ## Business Impact
 
 Industry research and Snowflake customer outcomes:
-- **Vietnam electronics manufacturing sector growing rapidly** — [GSO Vietnam](https://www.gso.gov.vn/)
-- **AI improves outcomes 15-30%** — [McKinsey](https://www.mckinsey.com/)
-- **Vietnam FDI strong in this sector** — [MPI](https://www.mpi.gov.vn/)
-- **Real-time analytics reduces response 60-80%** — [Gartner](https://www.gartner.com/)
-
+- **Vietnam attracted $4.3B FDI in electronics manufacturing in 2024 — Intel, LG, Foxconn, and Pegatron expanding** — [MPI Vietnam FDI Portal](https://fia.mpi.gov.vn/en/Home)
+- **Factory capacity utilization in Bac Ninh electronics cluster averages 78% — optimal is 85-92%** — [Vietnam Electronics Industries Association](https://www.veia.org.vn/)
+- **Unplanned downtime costs electronics manufacturers $260,000/hour on average — predictive analytics reduces incidents 35%** — [Deloitte Smart Factory](https://www2.deloitte.com/us/en/insights/focus/industry-4-0/smart-factory-connected-manufacturing.html)
+- **Flex Ltd uses Snowflake to unify production data across 100+ manufacturing sites globally** — [Snowflake Customers](https://www.snowflake.com/en/customers/all-customers/)
 
 ## Key Demo Numbers
 
