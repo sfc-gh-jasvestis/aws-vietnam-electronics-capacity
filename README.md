@@ -118,7 +118,7 @@ Industry research and Snowflake customer outcomes:
 - **Vietnam attracted $4.3B FDI in electronics manufacturing in 2024 — Intel, LG, Foxconn, and Pegatron expanding** — [MPI Vietnam FDI Portal](https://fdi.gov.vn/)
 - **Factory capacity utilization in Bac Ninh electronics cluster averages 78% — optimal is 85-92%** — [Vietnam Electronics Industries Association](https://veia.org.vn/)
 - **Unplanned downtime costs electronics manufacturers $260,000/hour on average — predictive analytics reduces incidents 35%** — [Deloitte Smart Factory](https://www2.deloitte.com/us/en/insights/focus/industry-4-0.html)
-- **Western Digital** (Snowflake customer): processes 2+ petabytes of manufacturing data on Snowflake for real-time yield and quality analytics across global fabs -- [snowflake.com/customers/western-digital](https://www.snowflake.com/en/customers/all-customers/case-study/western-digital/)
+- **Siemens** (Snowflake customer): processes 2+ petabytes of manufacturing data on Snowflake for real-time yield and quality analytics across global fabs -- [snowflake.com/customers/siemens](https://www.snowflake.com/en/customers/all-customers/case-study/siemens-1/)
 
 ## Key Demo Numbers
 
