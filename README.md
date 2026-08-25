@@ -117,7 +117,7 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 Industry research and Snowflake customer outcomes:
 - **Vietnam attracted $4.3B FDI in electronics manufacturing in 2024 — Intel, LG, Foxconn, and Pegatron expanding** — [MPI Vietnam FDI Portal](https://fdi.gov.vn/)
 - **Factory capacity utilization in Bac Ninh electronics cluster averages 78% — optimal is 85-92%** — [Vietnam Electronics Industries Association](https://veia.org.vn/)
-- **Unplanned downtime costs electronics manufacturers $260,000/hour on average — predictive analytics reduces incidents 35%** — [Deloitte Smart Factory](https://www2.deloitte.com/us/en/insights/focus/industry-4-0/smart-factory-connected-manufacturing.html)
+- **Unplanned downtime costs electronics manufacturers $260,000/hour on average — predictive analytics reduces incidents 35%** — [Deloitte Smart Factory](https://www2.deloitte.com/us/en/insights/focus/industry-4-0.html)
 - **Flex Ltd uses Snowflake to unify production data across 100+ manufacturing sites globally** — [Snowflake Customers](https://www.snowflake.com/en/customers/all-customers/)
 
 ## Key Demo Numbers
