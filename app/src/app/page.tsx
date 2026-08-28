@@ -7,6 +7,7 @@ import { Chart } from '@/components/Chart';
 import { DataTable } from '@/components/DataTable';
 import { AskAI } from '@/components/AskAI';
 import { ActionMemo } from '@/components/ActionMemo';
+import { GeoMap } from '@/components/GeoMap';
 
 interface DemoNarrative {
   title: string;
@@ -40,7 +41,18 @@ export default function HomePage() {
         <KPICard title="Yield Rate" value="97.8%" status="neutral" />
         <KPICard title="Lines Active" value="24" status="neutral" />
       </div>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="lg:col-span-1">
+          <GeoMap
+            country="vietnam"
+            markers={[{"label": "Ho Chi Minh City", "value": "Factory complex", "color": "blue", "size": "lg"}, {"label": "Binh Duong", "value": "Samsung plant", "color": "green", "size": "lg"}, {"label": "Hanoi", "value": "R&D + assembly", "color": "green", "size": "md"}, {"label": "Hai Phong", "value": "Export port", "color": "blue", "size": "md"}]}
+            routes={[{"from": "Binh Duong", "to": "Ho Chi Minh City", "color": "#29B5E8"}, {"from": "Hanoi", "to": "Hai Phong", "color": "#10B981"}]}
+            title="Geographic Overview"
+            height={280}
+          />
+        </div>
+        <div className="lg:col-span-2 grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 grid-cols-1">
         <Chart
           data={data?.timeseries || [{ period: 'Loading', value: 0 }]}
           type="line"
@@ -55,6 +67,8 @@ export default function HomePage() {
           yKeys={[{ key: 'count', name: '%' }]}
           title="Utilization by Product Line"
         />
+      </div>
+        </div>
       </div>
       <DataTable
         columns={[
