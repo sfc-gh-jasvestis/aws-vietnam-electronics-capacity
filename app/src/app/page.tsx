@@ -35,36 +35,36 @@ export default function HomePage() {
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Total Value at Risk" value="Loading..." status="danger" />
-        <KPICard title="Critical Entities" value="—" status="warning" />
-        <KPICard title="Anomalies Detected" value="—" status="warning" />
-        <KPICard title="Documents Indexed" value="—" status="neutral" />
+        <KPICard title="Total Output" value="₫2.4B" status="neutral" />
+        <KPICard title="Defect Rate" value="7" status="warning" />
+        <KPICard title="Anomalies Detected" value="3" status="danger" />
+        <KPICard title="Active Lines" value="124" status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Chart
           data={data?.timeseries || [{ period: 'Loading', value: 0 }]}
           type="line"
           xKey="period"
-          yKeys={[{ key: 'value', name: 'Value' }]}
-          title="Performance Trend"
+          yKeys={[{ key: 'value', name: 'Output' }]}
+          title="Output Trend (Weekly)"
         />
         <Chart
           data={data?.categories || [{ category: 'Loading', count: 0 }]}
           type="bar"
           xKey="category"
           yKeys={[{ key: 'count', name: 'Count' }]}
-          title="Category Distribution"
+          title="Defect Rate by Line"
         />
       </div>
       <DataTable
         columns={[
-          { key: 'id', header: 'ID' },
-          { key: 'name', header: 'Name' },
+          { key: 'id', header: '#' },
+          { key: 'name', header: 'Line' },
           { key: 'status', header: 'Status' },
-          { key: 'value', header: 'Value' },
+          { key: 'value', header: 'Output' },
         ]}
         data={data?.entities || []}
-        title="Entity Health"
+        title="Line Performance"
       />
     </div>
   );
@@ -72,16 +72,16 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="Primary Metric" value="—" />
-        <KPICard title="Secondary Metric" value="—" />
-        <KPICard title="Tertiary Metric" value="—" />
+        <KPICard title="Efficiency" value="87%" />
+        <KPICard title="Utilization" value="72%" />
+        <KPICard title="Growth Rate" value="+8.4%" />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Loading', y: 0 }]}
         type="area"
         xKey="x"
-        yKeys={[{ key: 'y', name: 'Metric' }]}
-        title="Detailed Analytics"
+        yKeys={[{ key: 'y', name: 'Index' }]}
+        title="Capacity Performance Trend"
         height={400}
       />
     </div>
@@ -94,17 +94,17 @@ export default function HomePage() {
           data={data?.breakdown || [{ label: 'A', value: 30 }, { label: 'B', value: 70 }]}
           type="pie"
           xKey="label"
-          yKeys={[{ key: 'value', name: 'Value' }]}
-          title="Breakdown"
+          yKeys={[{ key: 'value', name: 'Score' }]}
+          title="Risk Distribution"
         />
         <ActionMemo
-          persona={{ name: 'Analyst', role: 'Operations' }}
+          persona={{ name: 'Vietnam Operations Lead', role: 'Director of Capacity' }}
           context={{}}
           onGenerate={async () => ({
             subject: 'Action Required',
-            body: 'AI-generated recommendation based on current data.',
+            body: 'AI-generated recommendation based on current data patterns and predicted trends.',
             urgency: 'HIGH',
-            actions: ['Review anomalies', 'Escalate to management', 'Schedule intervention'],
+            actions: ['Review top defect rate findings', 'Optimize line allocation', 'Prepare quarterly capacity report'],
           })}
         />
       </div>
@@ -116,13 +116,12 @@ export default function HomePage() {
       <AskAI
         title="Ask AI"
         sampleQuestions={[
-          'What is the current status?',
-          'Which entities are at highest risk?',
-          'Show me the trend for the last 30 days',
+          'Which lines have the highest defect rate?',
+          'Show output trend for the last 30 days',
+          'What is the forecast for next quarter's output?',
         ]}
         mode="both"
         onSubmit={async (question, mode) => {
-          // In production, this calls the Snowflake API route
           return {
             answer: `[Demo Mode] Response to: "${question}" (${mode} mode). Connect to Snowflake for live data.`,
             sql: mode === 'sql' ? 'SELECT * FROM CURATED.SUMMARY LIMIT 10;' : undefined,
@@ -179,8 +178,8 @@ export default function HomePage() {
 
   const tabs = [
     { id: 'executive-cockpit', label: 'Executive Cockpit', icon: '📊', content: executiveCockpit },
-    { id: 'domain-1', label: 'Analytics', icon: '📈', content: domainTab1 },
-    { id: 'domain-2', label: 'Actions', icon: '⚡', content: domainTab2 },
+    { id: 'domain-1', label: 'Capacity Analytics', icon: '📈', content: domainTab1 },
+    { id: 'domain-2', label: 'Alerts & Actions', icon: '⚡', content: domainTab2 },
     { id: 'ask-ai', label: 'Ask AI', icon: '🤖', content: askAiTab },
     { id: 'architecture', label: 'Architecture & Data', icon: '🏗️', content: architectureTab },
   ];
