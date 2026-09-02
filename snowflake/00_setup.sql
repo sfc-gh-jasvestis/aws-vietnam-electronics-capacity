@@ -1,16 +1,13 @@
--- ============================================================================
--- Production Capacity Planning
--- Production Capacity Planning for Vietnam - ML.FORECAST and Dynamic Tables power real-time capacity planning intelligence for electronics manufacturing in Thai Nguyen & Hai Phong.
--- ============================================================================
-USE ROLE ACCOUNTADMIN;
-CREATE DATABASE IF NOT EXISTS ELECTRONICS_CAPACITY;
-CREATE WAREHOUSE IF NOT EXISTS ELECTRONICS_WH WAREHOUSE_SIZE = 'MEDIUM' AUTO_SUSPEND = 120 AUTO_RESUME = TRUE;
-USE DATABASE ELECTRONICS_CAPACITY;
-CREATE SCHEMA IF NOT EXISTS RAW;
-CREATE SCHEMA IF NOT EXISTS CURATED;
-CREATE SCHEMA IF NOT EXISTS ML;
-CREATE SCHEMA IF NOT EXISTS AI;
-CREATE SCHEMA IF NOT EXISTS SEARCH;
-CREATE SCHEMA IF NOT EXISTS APP;
+-- Generated from generator/demo_specs/aws-vietnam-electronics-capacity.json
+-- Regenerate with: python3 generator/gen_repo_docs.py aws-vietnam-electronics-capacity
+-- This is the schema that is actually deployed for VIETNAM_ELECTRONICS_CAPACITY.
 
-USE WAREHOUSE ELECTRONICS_WH;
+-- VIETNAM_ELECTRONICS_CAPACITY  (Production Capacity Planning)
+-- generated from generator/demo_specs/aws-vietnam-electronics-capacity.json - do not hand-edit
+CREATE DATABASE IF NOT EXISTS VIETNAM_ELECTRONICS_CAPACITY;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_ELECTRONICS_CAPACITY.RAW;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_ELECTRONICS_CAPACITY.CURATED;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_ELECTRONICS_CAPACITY.APP;
+USE DATABASE VIETNAM_ELECTRONICS_CAPACITY;
+
+-- 5 real regions; entity names carry their region so the two always agree
