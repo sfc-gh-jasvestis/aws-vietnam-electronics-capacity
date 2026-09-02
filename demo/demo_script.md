@@ -21,8 +21,8 @@ Snowflake delivers capacity planning intelligence for Vietnamese electronics man
 | Database | `VIETNAM_ELECTRONICS_CAPACITY` |
 | Service | `VIETNAM_ELECTRONICS_CAPACITY_APP` |
 | Compute pool | `SEA_DEMOS_VIETNAM_POOL` |
-| Dimension table | `RAW.DOCUMENTS` (20 rows) |
-| Fact table | `RAW.METRICS` (250,000 rows, 90 days) |
+| Dimension table | `RAW.PRODUCTION_LINES` (20 rows) |
+| Fact table | `RAW.PRODUCTION_RUNS` (250,000 rows, 90 days) |
 | Curated layer | `CURATED.PERFORMANCE_SUMMARY`, `CURATED.TREND_ANALYSIS`, `CURATED.KPI_SUMMARY` |
 | Currency | VND (₫) |
 
@@ -43,9 +43,9 @@ original literal as a fallback, so it still renders if Snowflake is unreachable.
 | Card | Value | Backed by |
 |---|---|---|
 | Factory Utilization | `89%` | average per event |
-| Output (MTD) | `4.2M units` | total across Documents |
+| Output (MTD) | `4.2M units` | total across Production Lines |
 | Yield Rate | `97.8%` | average per event |
-| Lines Active | `24` | total across Documents |
+| Lines Active | `24` | total across Production Lines |
 | Cycle Time | `12.4s` | average per event |
 | OEE | `84%` | average per event |
 | Bottleneck Tool | `SMT-3` | fixed label (not numeric) |
