@@ -1,105 +1,77 @@
-# Demo Script: Production Capacity Planning
-## ~4-Minute Recorded Walkthrough
-**Format**: Screen recording with voiceover
-**Target**: Customer meeting / booth loop / social share
-**Narrative**: "Snowflake delivers capacity planning intelligence for Vietnamese electronics manufacturing - Dynamic Tables maintain real-time dashboards, ML.FORECAST projects key metrics, and Cortex AI generates recommendations"
-**Demo Mode**: Open app with `?demo=true` for presenter notes
+# Production Capacity Planning
 
----
+**Vietnam - Electronics Manufacturing**
+Use case: Capacity Planning
 
-## Two Personas
+> Production Capacity Planning for Vietnam - ML.FORECAST and Dynamic Tables power real-time capacity planning intelligence for electronics manufacturing in Thai Nguyen & Hai Phong.
 
-| Persona | Role | Tool | What they care about |
-|---|---|---|---|
-| **Tran Quoc Viet** | VP Manufacturing | React App (SPCS) | Capacity Planning strategy, KPI tracking, operational decisions |
-| **Nguyen Thi Mai** | Planning Manager | Amazon QuickSight | Capacity Planning operations, analysis, reporting |
+## Why Snowflake
 
----
+Snowflake delivers capacity planning intelligence for Vietnamese electronics manufacturing - Dynamic Tables maintain real-time dashboards, ML.FORECAST projects key metrics, and Cortex AI generates recommendations
 
-## What's Built
+- **ML.FORECAST for capacity planning** - Only demo for Vietnamese electronics manufacturing
+- **ML.ANOMALY_DETECTION early warning** - Detects deviations before impact
+- **AI recommendations** - Cortex AI actionable guidance
+- **Vietnamese context** - Local names, VND economics
 
-| Layer | Component | Detail |
+## What is deployed
+
+| | |
+|---|---|
+| Database | `VIETNAM_ELECTRONICS_CAPACITY` |
+| Service | `VIETNAM_ELECTRONICS_CAPACITY_APP` |
+| Compute pool | `SEA_DEMOS_VIETNAM_POOL` |
+| Dimension table | `RAW.DOCUMENTS` (20 rows) |
+| Fact table | `RAW.METRICS` (250,000 rows, 90 days) |
+| Curated layer | `CURATED.PERFORMANCE_SUMMARY`, `CURATED.TREND_ANALYSIS`, `CURATED.KPI_SUMMARY` |
+| Currency | VND (₫) |
+
+Regions in play: Ho Chi Minh City, Hanoi, Binh Duong, Dong Nai, Can Tho
+Segments: SMT Line, Assembly Line, Test Line, Packaging
+
+Dynamic tables are created suspended and refreshed on demand:
+
+```bash
+./refresh_demo_data.sh VIETNAM_ELECTRONICS_CAPACITY
+```
+
+## KPI cards
+
+Every card below is served live from `CURATED.KPI_SUMMARY`. The app keeps the
+original literal as a fallback, so it still renders if Snowflake is unreachable.
+
+| Card | Value | Backed by |
 |---|---|---|
-| **RAW** | 5 tables | OPERATIONS (100000), METRICS (500000), ASSETS (5000), EVENTS (200000), DOCUMENTS (100) |
-| **CURATED** | 4 Dynamic Tables | PERFORMANCE_DASHBOARD, TREND_ANALYTICS, FORECAST_INPUT, OPERATIONAL_RISK |
-| **ML** | ML.FORECAST + ML.ANOMALY_DETECTION | Forecasting + anomaly detection |
-| **AI** | COMPLETE, SUMMARIZE, AI_CLASSIFY | Classification + extraction |
-| **Search** | Cortex Search | 100 documents indexed |
-| **Agent** | ELECTRONICS_CAPACITY_AGENT | Semantic View + Search tools |
+| Factory Utilization | `89%` | average per event |
+| Output (MTD) | `4.2M units` | total across Documents |
+| Yield Rate | `97.8%` | average per event |
+| Lines Active | `24` | total across Documents |
+| Cycle Time | `12.4s` | average per event |
+| OEE | `84%` | average per event |
+| Bottleneck Tool | `SMT-3` | fixed label (not numeric) |
 
+## Demo flow
 
----
+1. Overview
+2. Analytics
+3. AI Intelligence
+4. Ask AI
+5. Architecture
 
-## The Story
+## Talking points
 
-Vietnam electronics manufacturing faces increasing complexity in capacity planning. Decision-makers in Thai Nguyen & Hai Phong need real-time intelligence and ML-powered recommendations.
+- **100K operations** - tracked in Thai Nguyen & Hai Phong
+- **500K metrics** - time-series data points
+- **5K assets** - monitored
+- **100 docs** - searchable
 
----
+## Business impact
 
-## Script
-
-### [0:00–0:45] OVERVIEW
-
-**Show**: Overview tab
-
-> "Comprehensive capacity planning monitoring in Thai Nguyen & Hai Phong."
-
-**Action**: Primary KPI dashboard
-
-### [0:45–1:30] ANALYTICS
-
-**Show**: Analytics tab
-
-> "Detailed trend analysis across parameters."
-
-**Action**: Trend charts
-
-### [1:30–2:15] AI INTELLIGENCE
-
-**Show**: AI Intelligence tab
-
-> "Cortex AI generates actionable recommendations."
-
-**Action**: AI recommendations
-
-### [2:15–3:00] ASK AI
-
-**Show**: Ask AI tab
-
-> "Tran Quoc Viet asks questions in natural language."
-
-**Action**: Type question
-
-### [3:00–3:45] ARCHITECTURE
-
-**Show**: Architecture tab
-
-> "Six Snowflake + six AWS services."
-
-**Action**: Architecture diagram
-
+- Vietnam electronics manufacturing sector growing rapidly (GSO Vietnam)
+- AI improves outcomes 15-30% (McKinsey)
+- Vietnam FDI strong in this sector (MPI)
+- Real-time analytics reduces response 60-80% (Gartner)
 
 ---
-
-## Key Demo Differentiators
-
-1. **ML.FORECAST for capacity planning** — Only demo for Vietnamese electronics manufacturing
-2. **ML.ANOMALY_DETECTION early warning** — Detects deviations before impact
-3. **AI recommendations** — Cortex AI actionable guidance
-4. **Vietnamese context** — Local names, VND economics
-
-
----
-
-## Demo Prep Checklist
-
-### Data Verification
-- [ ] `SELECT COUNT(*) FROM ELECTRONICS_CAPACITY.RAW.OPERATIONS` → 100000
-- [ ] `SELECT COUNT(*) FROM ELECTRONICS_CAPACITY.RAW.METRICS` → 500000
-
-### ML Model Verification
-- [ ] `SELECT COUNT(*) FROM ELECTRONICS_CAPACITY.ML.ELECTRONICS_CAPACITY_FORECAST_RESULTS` → >0
-
-### AI/Agent Verification
-- [ ] `SELECT COUNT(*) FROM ELECTRONICS_CAPACITY.AI.EVENT_CLASSIFICATION` → >0
-
+Generated from `generator/demo_specs/aws-vietnam-electronics-capacity.json`. Do not hand-edit: run
+`python3 generator/gen_repo_docs.py aws-vietnam-electronics-capacity` instead.
